@@ -1,0 +1,27 @@
+﻿@page "/"
+ @inject IRepository repository 
+
+<h1>Example of Services with Interfaces</h1>
+<div>
+    @foreach (var i in d)
+    {
+
+
+        <p>Id is: <b>@i.Id</b></p>
+        <p>Name is: <b>@i.Name</b></p>
+        <p>Address is: <b>@i.Address</b></p>
+    }
+
+</div>
+
+@code
+{
+
+     private List<Data> d;
+    protected override void OnInitialized()
+    {
+        d = repository.GetData();
+    }
+}
+
+
